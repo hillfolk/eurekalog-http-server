@@ -1,0 +1,12 @@
+* eurekalog http server
+
+
+** echo server 설치 
+
+
+** eurekalog post message 
+
+** store database
+
+** display of bug event
+
