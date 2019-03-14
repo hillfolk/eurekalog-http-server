@@ -87,6 +87,6 @@ func RunServer(port string){
 	e.POST("/bugs",saveBugs)	
 	e.GET("/bugs",getBugs)
 	e.POST("/upload/", upload)
-	e.Logger.Fatal(e.Start(":80"))
+	e.Logger.Fatal(e.Start(port))
 	
 }

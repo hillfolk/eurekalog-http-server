@@ -15,8 +15,8 @@
 package cmd
 
 import (
+	viper "github.com/spf13/viper"
 	"fmt"
-
 	"github.com/spf13/cobra"
 	web "github.com/hillfolk/eurekalog-http-server/web"
 )
@@ -32,14 +32,18 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("server called")
-		web.RunServer(":80")
+		port, _:= cmd.Flags().GetString("port")
+		if port == "" {
+			port = "8282"
+		}
+		fmt.Println("eurekalog http server string.....")
+		web.RunServer(":"+port)
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(serverCmd)
-
+	serverCmd.Flags().StringP("port", "p", viper.GetString("EUREKALOG_HTTP_SERVER_PORT"), "set server port")
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command
