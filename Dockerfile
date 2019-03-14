@@ -8,9 +8,8 @@ go build -o bin/eurekalog-http-server
 
 
 FROM alpine:3.9 as baseimagealp
-RUN apk add --no-cache bash
 ENV WORK_DIR=/docker/bin
 WORKDIR $WORK_DIR
 COPY --from=goimage /go/src/github.com/hillfolk/eurekalog-http-server/bin/ ./
-ENTRYPOINT /docker/bin/eurekalog-http-server
+ENTRYPOINT /docker/bin/eurekalog-http-server server --port=8080
 EXPOSE 8080
