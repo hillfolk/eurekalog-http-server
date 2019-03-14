@@ -1,12 +1,18 @@
+
 * eurekalog http server
 
 
-** echo server 설치 
+** Getting Started
 
+** Environment
+    - Linux
+    - Go 1.11+
+    - Echo 4.0.0+
 
-** eurekalog post message 
+** Feature Overview
+   - collection eurekalog file
 
-** store database
+** Credits
+   - Park JunYong - Author
 
-** display of bug event
-
+** License
