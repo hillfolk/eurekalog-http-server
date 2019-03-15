@@ -1,6 +1,6 @@
 
 * eurekalog http server
-
+  
 
 ** Getting Started
 
@@ -11,6 +11,10 @@
 
 ** Feature Overview
    - collection eurekalog file
+
+** Docker
+   - Run
+     docker run -t -i --rm -p 8080:8080 -v /data:/docker/bin/data eurekalog-http-server:latest
 
 ** Credits
    - Park JunYong - Author
