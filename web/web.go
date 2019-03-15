@@ -35,6 +35,12 @@ func upload(c echo.Context) error {
 		return err
 	}
 
+	folderPath := t.Format("2006-01-02")
+	
+	if _, err := os.Stat(path); os.IsNotExist(err) {
+		os.MkdirAll(folderPath, os.ModePerm)
+	}
+	
 
 	for _, files := range form.File {
 		
