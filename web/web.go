@@ -38,7 +38,7 @@ func upload(c echo.Context) error {
 	t := time.Now()
 	folderPath := t.Format("2006-01-02")
 	
-	if _, err := os.Stat(path); os.IsNotExist(err) {
+	if _, err := os.Stat(folderPath); os.IsNotExist(err) {
 		os.MkdirAll(folderPath, os.ModePerm)
 	}
 	
