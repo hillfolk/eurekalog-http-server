@@ -36,7 +36,7 @@ to quickly create a Cobra application.`,
 		if port == "" {
 			port = "8282"
 		}
-		fmt.Println("eurekalog http server string.....")
+		fmt.Println("eurekalog http server starting.....")
 		web.RunServer(":"+port)
 	},
 }

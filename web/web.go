@@ -30,6 +30,7 @@ func getBugs(c echo.Context) error {
 }
 
 func upload(c echo.Context) error {
+	
 	// Multipart form
 	form, err := c.MultipartForm()
 	if err != nil {
@@ -37,9 +38,9 @@ func upload(c echo.Context) error {
 	}
 	t := time.Now()
 	folderPath := t.Format("2006-01-02")
-	
 	if _, err := os.Stat(folderPath); os.IsNotExist(err) {
-		os.MkdirAll(folderPath, os.ModePerm)
+		fmt.Println("mkdir All")
+		os.MkdirAll("./data/"+folderPath, os.ModePerm)
 	}
 	
 
