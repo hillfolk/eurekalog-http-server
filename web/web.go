@@ -54,7 +54,7 @@ func upload(c echo.Context) error {
 		defer src.Close()
 
 		// Destination
-		dst, err := os.Create("./data/"+folderPath+'/'+file.Filename)
+		dst, err := os.Create("./data/"+folderPath+"/"+file.Filename)
 		if err != nil {
 			return err
 		}
