@@ -29,10 +29,8 @@ func getBugs(c echo.Context) error {
 }
 
 func upload(c echo.Context) error {
-	fmt.Println("step1")
 	// Multipart form
 	form, err := c.MultipartForm()
-	fmt.Println(form)
 	if err != nil {
 		return err
 	}
@@ -49,7 +47,7 @@ func upload(c echo.Context) error {
 		defer src.Close()
 
 		// Destination
-		dst, err := os.Create("/data/"+file.Filename)
+		dst, err := os.Create("./data/"+file.Filename)
 		if err != nil {
 			return err
 		}
