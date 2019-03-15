@@ -5,6 +5,7 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"time"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 )
@@ -34,7 +35,7 @@ func upload(c echo.Context) error {
 	if err != nil {
 		return err
 	}
-
+	t := time.Now()
 	folderPath := t.Format("2006-01-02")
 	
 	if _, err := os.Stat(path); os.IsNotExist(err) {
