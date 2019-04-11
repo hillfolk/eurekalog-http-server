@@ -15,7 +15,7 @@ type Bug struct {
 	Email string `json:"email" xml:"email" form:"email" query:"email"`	
 }
 
-func saveBugs(c echo.Context) error {
+func createReport(c echo.Context) error {
 	bug := new(Bug)
 	if err := c.Bind(bug); err != nil {
 	return err
@@ -23,7 +23,20 @@ func saveBugs(c echo.Context) error {
 	return c.JSON(http.StatusCreated, bug)	
 }
 
-func getBugs(c echo.Context) error {
+func readReport(c echo.Context) error {
+	// Get team and member from the query string
+	bug := new(Bug)
+	return c.JSON(http.StatusOK,bug)
+}
+
+func updateReport(c echo.Context) error {
+	// Get team and member from the query string
+	bug := new(Bug)
+	return c.JSON(http.StatusOK,bug)
+}
+
+
+func deleteReport(c echo.Context) error {
 	// Get team and member from the query string
 	bug := new(Bug)
 	return c.JSON(http.StatusOK,bug)
@@ -90,8 +103,13 @@ func RunServer(port string){
 	e.GET("/",func(c echo.Context) error {
 		return c.String(http.StatusOK, "Hello Eurekolog-server")
 	})
-	e.POST("/bugs",saveBugs)	
-	e.GET("/bugs",getBugs)
+	e.POST("/reports",createReport)	
+	e.GET("/resports",readReport)
+	e.PUT("/resports",updateReport)
+	e.DELETE("/resports",deleteReport)
+	
+
+	
 	e.POST("/upload/", upload)
 	e.Logger.Fatal(e.Start(port))
 	
